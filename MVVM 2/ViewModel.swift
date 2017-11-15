@@ -10,7 +10,7 @@ import UIKit
 
 class ViewModel : NSObject
 {
-    var apiClient:APIClient!
+    @IBOutlet var apiClient:APIClient!
     var apps : [NSDictionary]?
     
     func getList (completion: @escaping ()-> Void)
