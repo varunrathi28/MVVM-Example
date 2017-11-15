@@ -13,13 +13,11 @@ class APIClient : NSObject
     
     func getList(completion: @escaping ([NSDictionary]?) -> Void)
     {
-        
         guard let url = URL(string: Constant.iTunesRSSUrl) else { print("Error: Improper URL") ; return}
         let session = URLSession.shared
         let dataTask = session.dataTask(with: url) { (data, response, error) in
             
             guard let recievedData = data else { print("Error parsing data") ; return }
-            
             do
             {
                 if let responseJson = try JSONSerialization.jsonObject(with:recievedData, options: .allowFragments) as? NSDictionary
@@ -41,7 +39,6 @@ class APIClient : NSObject
         }
         
         dataTask.resume()
-        
     }
     
     
